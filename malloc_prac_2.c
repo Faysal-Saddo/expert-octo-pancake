@@ -22,6 +22,6 @@ int main(){
 
         printf("%d",*(ptr +  x));
     }
-
+    free(ptr);
     return 0;
 }

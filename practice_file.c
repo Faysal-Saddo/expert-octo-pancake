@@ -13,7 +13,7 @@ int main(){
     else{
    
 
-    fseek(ptr,0,SEEK_END);
+    fseek(ptr,-2,SEEK_END);
     
 
     int pos = ftell(ptr);
