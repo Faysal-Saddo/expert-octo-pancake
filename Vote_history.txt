@@ -1,0 +1,4 @@
+Total votes for candidate 0 : 7
+Total votes for candidate 1 : 4
+Total votes for candidate 2 : 5
+Total votes for candidate 3 : 7

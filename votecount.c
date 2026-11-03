@@ -1,12 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h>
 
-int *ptr, candidate_count,choice,mode;
-
+int *ptr, candidate_count,choice;
+char mode;
 int main(){
 
+    printf("1.new vote\n2.see previous result\nselect your mode:");
+    mode = getche();
+
+    if (mode == '1'){
  
-    printf("Enter the number of the people:");
+    printf("\nEnter the number of the candidates:");
 
     scanf("%d",&candidate_count);
 
@@ -34,22 +39,73 @@ int main(){
         else {
             printf("ERROR///NO CANDIDATE!\n");
         }
-       
-
-        
     }
+
+
+   
+
     printf("\n");
-
-
-
-  
     for(int candidate = 0,loop2 = 0; loop2 < candidate_count; loop2++,candidate++){
         printf("Total votes for candidate %d : %d\n",candidate,ptr[loop2]);
     
     
     }
 
+    printf("\nPress S to save the record\n");
+    char save;
+
+    save = getch();
+
+    if(save == 's'|| save == 'S'){
+
+        FILE * file_ptr = fopen("Vote_history.txt","w");
+        
+        if (file_ptr == NULL){
+           exit(1);
+    }
+
+    
+         for(int candidate = 0,loop2 = 0; loop2 < candidate_count; loop2++,candidate++){
+            fprintf(file_ptr,"Total votes for candidate %d : %d\n",candidate,ptr[loop2]);
+            
+    }
+    printf("\nSaved.\n");
+
+    }
+}
+    
+
+     else if(mode == '2'){
+
+            char ch[10000];
+            int str=0;
+    FILE * ptr22 = fopen("vote_history.txt","r");
+ 
+    if (ptr22 == NULL){
+        exit(1);
+    }
+    else{
+            while((ch[str]=fgetc(ptr22))!= EOF){
+
+                str++;
+
+    }
+    
+
+    }
+    printf("\n");
+    for(int i=0;i<str;i++){
+        printf("%c",ch[i]);
+    }
+    printf("\n");
+          
+    }
+    
+
+
+
 
 
     return 0;
+    
 }
